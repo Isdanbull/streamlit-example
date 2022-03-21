@@ -20,5 +20,5 @@ if button1:
   st.dataframe(df[df.league.isin(list1)].head(slider1))
   
 fig, ax = plt.subplots()
-ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2)], x = "position", y = "kills)
+ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2))], x = "position", y = "kills)
 st.pyplot(fig)
