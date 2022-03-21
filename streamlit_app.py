@@ -12,4 +12,4 @@ button1 = st.button("fire the data cannon")
 slider1 = st.slider("rows", min_value=0, max_value=100)
 
 if button1:
-  st.write("2021 data", df)
+  st.write("2021 data", df.head(slider1)
