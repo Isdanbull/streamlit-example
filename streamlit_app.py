@@ -4,7 +4,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 @st.experimental_singleton
-df = pd.read_csv("https://oracleselixir-downloadable-match-data.s3-us-west-2.amazonaws.com/2021_LoL_esports_match_data_from_OraclesElixir_20220321.csv")
+def get_data(url):
+  return pd.read_csv(url)
+
+df = get_data("https://oracleselixir-downloadable-match-data.s3-us-west-2.amazonaws.com/2021_LoL_esports_match_data_from_OraclesElixir_20220321.csv")
 
 st.title("I'm a test app")
 
