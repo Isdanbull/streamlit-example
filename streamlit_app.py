@@ -9,8 +9,8 @@ st.title("I'm a test app")
 
 st.header("hear me roar")
 
-list1 = st.sidebar.multiselect("leagues", df.league.unique())
-list2 = st.sidebar.multiselect("positions", df.position.unique())
+list1 = st.sidebar.multiselect("leagues", df.league.unique(), df.league.unique())
+list2 = st.sidebar.multiselect("positions", df.position.unique(), df.position.unique())
 
 slider1 = st.sidebar.slider("rows", min_value=0, max_value=100)
 
@@ -20,5 +20,5 @@ if button1:
   st.dataframe(df[df.league.isin(list1)].head(slider1))
   
 fig, ax = plt.subplots()
-ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2))], x = "position", y = "kills")
+ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2))], y = "position", x = "kills")
 st.pyplot(fig)
