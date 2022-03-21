@@ -21,13 +21,6 @@ if list1 == []:
 
 if list2 == []:
   list2 = df.position.unique()
-
-slider1 = st.sidebar.slider("rows", min_value=0, max_value=100)
-
-button1 = st.sidebar.button("fire the data cannon")
-
-if button1:
-  st.dataframe(df[df.league.isin(list1)].head(slider1))
   
 fig, ax = plt.subplots()
 ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2))], y = "position", x = "kills")
