@@ -7,9 +7,11 @@ st.title("I'm a test app")
 
 st.header("hear me roar")
 
-button1 = st.button("fire the data cannon")
+st.multiselect("leagues", df.league.unique())
 
 slider1 = st.slider("rows", min_value=0, max_value=100)
+
+button1 = st.button("fire the data cannon")
 
 if button1:
   st.write("2021 data", df.head(slider1))
