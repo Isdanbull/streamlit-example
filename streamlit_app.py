@@ -9,8 +9,14 @@ st.title("I'm a test app")
 
 st.header("hear me roar")
 
-list1 = st.sidebar.multiselect("leagues", df.league.unique(), df.league.unique())
-list2 = st.sidebar.multiselect("positions", df.position.unique(), df.position.unique())
+list1 = st.sidebar.multiselect("leagues", df.league.unique())
+list2 = st.sidebar.multiselect("positions", df.position.unique())
+
+if list1 == []:
+  list1 = df.league.unique()
+
+if list2 == []:
+  list2 = df.position.unique()
 
 slider1 = st.sidebar.slider("rows", min_value=0, max_value=100)
 
