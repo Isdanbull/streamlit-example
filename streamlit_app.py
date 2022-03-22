@@ -4,11 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import datetime as dt
 
-@st.experimental_singleton
-def get_data(url):
-  return pd.read_csv(url)
 
-@st.experimental_singleton
+
 def score_f(row):
     if row.position == 'team':
         if (row.result == 1) and (row.gamelength < 1800):
@@ -18,19 +15,16 @@ def score_f(row):
     else:    #scores for players
         return (3*row.kills) + (2*row.assists) + (0.02*row['total cs']) + (2*row.firstbloodkill) + (2*(row.triplekills-row.quadrakills)) + (4*(row.quadrakills-row.pentakills)) + (7*row.pentakills) - row.deaths
 
-@st.experimental_singleton
-def score_a(df):
+@st.experimental_memo
+def get_data(url):
+  df = pd.read_csv(url)
   df['score'] = df.apply(lambda row: score_f(row), axis=1)
-  return df
-
-@st.experimental_singleton
-def date_f(df):
   df['date'] = pd.to_datetime(df.date).dt.date
   return df
 
+
 df = get_data("https://oracleselixir-downloadable-match-data.s3-us-west-2.amazonaws.com/2015_LoL_esports_match_data_from_OraclesElixir_20220322.csv")
-df = score_a(df)
-df = date_f(df)
+
 
 st.title("I'm a test app")
 
