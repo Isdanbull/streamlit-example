@@ -50,7 +50,7 @@ with st.expander("player stats"):
   p_df = df[df.playername == player]
   st.write(f"Most played champion: {p_df.champion.mode()[0]}")
   fig, axs = plt.subplots(ncols=2)
-  axs[0,0] = sns.lineplot(data=p_df, x='date', y='score')
-  axs[0,1] = sns.countplot(data=p_df, x='champion')
+  axs[0] = sns.lineplot(data=p_df, x='date', y='score')
+  axs[1] = sns.countplot(data=p_df, x='champion')
   st.pyplot(fig)
   
