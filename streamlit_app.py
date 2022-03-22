@@ -56,6 +56,6 @@ with st.expander("player stats"):
   p_df = df[df.playername == player]
   st.write(f"Most played champion: {p_df.champion.mode()[0]}")
   fig, ax = plt.subplots()
-  ax = sns.lineplot(data=df, x='date', y='score')
+  ax = sns.lineplot(data=p_df, x='date', y='score')
   st.pyplot(fig)
   
