@@ -54,8 +54,8 @@ st.pyplot(fig)
 
 with st.expander("player stats"):
     p = df[(df.league.isin(list1)) & (df.position.isin(list2))].playername.unique()
-    p.sort()
-    player = st.selectbox("player", p)
+    q = sorted(p)
+    player = st.selectbox("player", q)
     p_df = df[df.playername == player]
     st.write(f"Most played champion: {p_df.champion.mode()[0]}")
     fig, axs = plt.subplots()
