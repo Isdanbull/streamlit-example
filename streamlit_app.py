@@ -20,7 +20,7 @@ def get_data(url):
   df = pd.read_csv(url)
   df['score'] = df.apply(lambda row: score_f(row), axis=1)
   df['date'] = pd.to_datetime(df.date).dt.date
-  df.dropna(subset='playername', inplace=True)
+  df.dropna(subset=['playername'], inplace=True)
   return df
 
 
