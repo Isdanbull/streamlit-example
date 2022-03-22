@@ -32,7 +32,7 @@ st.header("hear me roar")
 
 year = st.selectbox("year", ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'])
 today = date.today()
-today = today.strftime(%Y%m%d)
+today = today.strftime('%Y%m%d')
 url = f'https://oracleselixir-downloadable-match-data.s3-us-west-2.amazonaws.com/{year}_LoL_esports_match_data_from_OraclesElixir_{today}.csv'
 
 df = get_data(url)
