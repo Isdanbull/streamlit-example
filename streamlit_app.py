@@ -13,7 +13,7 @@ st.title("I'm a test app")
 
 st.header("hear me roar")
 
-st.dataframe("full data", df)
+st.dataframe(df)
 
 list1 = st.sidebar.multiselect("leagues", df.league.unique())
 list2 = st.sidebar.multiselect("positions", df.position.unique())
