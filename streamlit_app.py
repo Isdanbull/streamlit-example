@@ -49,7 +49,7 @@ with st.expander("player stats"):
   player = st.selectbox("player", df[(df.league.isin(list1)) & (df.position.isin(list2))].playername.unique())
   p_df = df[df.playername == player]
   st.write(f"Most played champion: {p_df.champion.mode()[0]}")
-  fig, axs = plt.subplots(ncols=2)
+  fig, axs = plt.subplots(nrows=2)
   axs[0] = sns.lineplot(data=p_df, x='date', y='score')
   axs[1] = sns.countplot(data=p_df, x='champion')
   st.pyplot(fig)
