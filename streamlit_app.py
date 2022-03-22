@@ -53,7 +53,7 @@ ax = sns.violinplot(data=df[(df.league.isin(list1)) & (df.position.isin(list2))]
 st.pyplot(fig)
 
 with st.expander("player stats"):
-    player = st.selectbox("player", df[(df.league.isin(list1)) & (df.position.isin(list2))].playername.unique())
+    player = st.selectbox("player", sorted(df[(df.league.isin(list1)) & (df.position.isin(list2))].playername.unique()))
     p_df = df[df.playername == player]
     st.write(f"Most played champion: {p_df.champion.mode()[0]}")
     fig, axs = plt.subplots()
