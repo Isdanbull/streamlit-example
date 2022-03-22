@@ -7,7 +7,7 @@ import seaborn as sns
 def get_data(url):
   return pd.read_csv(url)
 
-df = get_data("https://oracleselixir-downloadable-match-data.s3-us-west-2.amazonaws.com/2021_LoL_esports_match_data_from_OraclesElixir_20220321.csv")
+df = get_data()
 
 st.title("I'm a test app")
 
